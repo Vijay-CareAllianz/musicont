@@ -3,7 +3,7 @@ import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from
 import { useAssets } from 'expo-asset';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const Explore = ({ style = {}, imageURL, title = 'Explore', subtitle = `Listen to what's trending now`, onPress = () => {} }) => {
+const Explore = (props,{ style = {}, imageURL, title = 'Explore', subtitle = `Listen to what's trending now`, onPress = () => {} }) => {
 	const [assets] = useAssets([require('../../assets/explore/default.png'), require('../../assets/icons/play.png')]);
 
 	return (
@@ -11,8 +11,8 @@ const Explore = ({ style = {}, imageURL, title = 'Explore', subtitle = `Listen t
 			<ImageBackground style={styles.card} imageStyle={styles.imageStyle} source={imageURL ? { uri: imageURL } : require('../../assets/explore/default.png')} resizeMode="cover">
 				<LinearGradient style={styles.overlay} colors={['rgba(0, 0, 0, 1)', 'transparent']} start={[0, 0]} end={[1, 0]} />
 				<View>
-					<Text style={styles.title}>{title}</Text>
-					<Text style={styles.subtitle}>{subtitle}</Text>
+					<Text style={styles.title}>{props.card===1?title:(props.card===2?"Card2":"Card3")}</Text>
+					<Text style={styles.subtitle}>{props.card===1?title:(props.card===2?"testCard2":"testCard3")}</Text>
 				</View>
 				<TouchableOpacity style={styles.btn} onPress={onPress}>
 					<Image style={{ width: 40, height: 40 }} source={require('../../assets/icons/play.png')} resizeMode="contain" />

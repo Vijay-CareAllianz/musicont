@@ -7,8 +7,8 @@ import * as Card from '../../../components/Cards';
 const Index = ({ style = {} }) => {
 	return (
 		<Container style={style} title="For you">
-			<Card.Explore style={{ marginLeft: 20 }} />
-			<Card.Explore />
+			<Card.Explore card={1} style={{ marginLeft: 20 }} />
+			<Card.Explore card={2} />
 			<Card.Explore />
 		</Container>
 	);
